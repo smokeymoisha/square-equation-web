@@ -1,0 +1,33 @@
+﻿@model IList<SquareEquation_ASP.Models.SquareEquationViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Square Equations</h2>
+
+<p>ax^2 + bx + c = 0</p>
+
+<a href="/SquareEquation/Calculate">Calculate new equation</a>
+
+<table class="table">
+    <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>X1</th>
+        <th>X2</th>
+    </tr>
+    @foreach (var equation in Model)
+    {
+        <tr>
+            <td>@equation.A</td>
+            <td>@equation.B</td>
+            <td>@equation.C</td>
+            <td>@equation.Discriminant</td>
+            <td>@equation.X1</td>
+            <td>@equation.X2</td>
+        </tr>
+    }
+</table>

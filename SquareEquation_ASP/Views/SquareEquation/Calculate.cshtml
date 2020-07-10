@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h2>Calculate</h2>
+
+@using (Html.BeginForm("Calculate", "SquareEquation", FormMethod.Post))
+{
+    <span>a: </span>@Html.TextBox("a");
+    <span>b: </span>@Html.TextBox("b");
+    <span>c: </span>@Html.TextBox("c");
+    <button type="submit" name="submit" onclick="">Calculate</button>
+}
