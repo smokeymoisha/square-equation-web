@@ -173,6 +173,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SquareEquation\Index.cshtml" />
     <Content Include="Views\SquareEquation\Calculate.cshtml" />
+    <Content Include="Views\SquareEquation\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

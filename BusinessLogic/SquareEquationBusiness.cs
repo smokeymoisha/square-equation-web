@@ -19,26 +19,13 @@ namespace BusinessLogic
             B = b;
             C = c;
 
-            Discriminant = Math.Pow(b, 2) - 4 * a * c;
+            Discriminant = GetDiscriminant();
 
-            if (Discriminant < 0)
-            {
-                X1 = null;
-                X2 = null;
-            }
-            else if (Discriminant == 0)
-            {
-                X1 = (-b + Math.Sqrt(Discriminant)) / (2 * a);
-                X2 = null;
-            }
-            else if (Discriminant > 0)
-            {
-                X1 = (-b + Math.Sqrt(Discriminant)) / (2 * a);
-                X2 = (-b - Math.Sqrt(Discriminant)) / (2 * a);
-            }
+            X1 = GetFirstRoot();
+            X2 = GetSecondRoot();
         }
 
-        public int Id { get; set; }
+        public int Identificator { get; set; }
 
         public double A { get; set; }
 
@@ -51,5 +38,42 @@ namespace BusinessLogic
         public double? X1 { get; set; }
 
         public double? X2 { get; set; }
+
+        public double GetDiscriminant()
+        {
+            return Math.Pow(B, 2) - 4 * A * C;
+        }
+
+        public double? GetFirstRoot()
+        {
+            if (Discriminant < 0)
+            {
+                return null;
+            }
+            else if (Discriminant == 0)
+            {
+                return (-B + Math.Sqrt(Discriminant)) / (2 * A);
+            }
+            else
+            {
+                return (-B + Math.Sqrt(Discriminant)) / (2 * A);
+            }
+        }
+
+        public double? GetSecondRoot()
+        {
+            if (Discriminant < 0)
+            {
+                return null;
+            }
+            else if (Discriminant == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return (-B - Math.Sqrt(Discriminant)) / (2 * A);
+            }
+        }
     }
 }

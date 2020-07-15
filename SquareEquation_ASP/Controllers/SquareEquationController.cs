@@ -32,13 +32,15 @@ namespace SquareEquation_ASP.Controllers
         }
 
         [HttpPost]
-        public ActionResult Calculate(double a, double b, double c)
+        public ActionResult Calculate(SquareEquationViewModel eqt)
         {
-            var equation = new SquareEquationViewModel(a, b, c);
+            eqt.Discriminant = eqt.GetDiscriminant();
+            eqt.X1 = eqt.GetFirstRoot();
+            eqt.X2 = eqt.GetSecondRoot();
 
-            _manager.AddSquareEquation(equation);
+            _manager.AddSquareEquation(eqt);
 
-            return RedirectToAction("Index");
+            return View("Result", eqt);
         }
     }
 }
